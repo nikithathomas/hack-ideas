@@ -1,0 +1,24 @@
+@import "../common/less/commonStyles.less";
+
+.hack-login{
+    margin-top:30px;
+    display: flex;
+    justify-content: center;
+    flex-direction:column;
+    &__title{
+        color:@primary-black;
+    }
+
+    &__submit{
+        .hack-btn-primary();
+    }
+    &__label{
+        .hack-label();
+    }
+}
+
+@media(min-width:768px){
+    .hack-login{
+        margin-top:30px;
+    }
+}
