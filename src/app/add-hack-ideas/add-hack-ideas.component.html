@@ -4,20 +4,26 @@
 </h2>
 <div>
     <label for="">Title</label>
-    <input type="text" placeholder="title" required>
+    <input type="text" placeholder="title" [(ngModel)]="title" #titleField="ngModel" required>
 </div>
 <div>
     <label for="">Description</label>
-    <textarea name="" id="" cols="30" rows="10" placeholder="description"></textarea>
+    <textarea name="" id="" cols="30" rows="10" placeholder="description" [(ngModel)]="description" #descriptionField="ngModel" required></textarea>
 </div>
 <div>
     <label for="">Tags</label>
-    <select name="" id="">
-        <option value=""></option>
+    <select name="" id="" (change)="selectTag()" [(ngModel)]="tagSelect" #tagField="ngModel" required>
+        <option value="{{tag.id}}" *ngFor="let tag of tagsArray"  [attr.disabled]="checkIfSelected(tag)">
+            {{tag.name}}
+        </option>
     </select>
+    <ng-template appTagRelated (deleteEvent)="deleteSpecificTag($event)"></ng-template>
 </div>
-<button>
-
+<button (click)="cancelAddHackIdea()">
+    Cancel
+</button>
+<button (click)="submitHackIdea()" [attr.disabled]="checkIfAddHackFormValid(titleField.errors?.required,descriptionField.errors?.required,tagField.errors?.required)">
+    Submit
 </button>
 </section>
 

@@ -3,8 +3,8 @@
         Employee Login
     </h2>
     <label for="employeeId">Employee Id</label>
-    <input id="employeeId" type="email" placeholder="xxxx@domain.com" pattern="[a-z0-9._%+-]+@[a-z0-9]+\.[a-z]{2,}$"
-        [(ngModel)]="employeeId" #employeeLogin="ngModel" required>
+    <input id="employeeId" type="email" placeholder="xxxx@domain.com" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9]+\.[a-z]{2,}$"
+        [(ngModel)]="employeeId" #employeeLogin="ngModel" required/>
     <button [attr.disabled]="employeeLogin.errors?.required||employeeLogin.errors?.pattern"
         (click)="loginEmployee(employeeLogin.errors?.required,employeeLogin.errors?.pattern)">Login</button>
 </section>
