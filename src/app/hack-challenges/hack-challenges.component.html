@@ -1,18 +1,26 @@
-<h2>
-    Hack Ideas
+<section class="hack-home container-fluid">
+<h2 class="text-center mt-5 mb-4">
+    Hack List
 </h2>
-<table>
-    <thead>
+<div class="table-responsive">
+<table class="table table-bordered hack-home__table">
+    <thead class="hack-home__header">
         <tr>
             <th>Title</th>
             <th>Description</th>
             <th>
                 Votes
-                <button (click)="sortVoteCounts()">Sort</button>
+                <button (click)="sortVoteCounts()" aria-label="Sort Votes" class="hack-home__sort">
+                    <img src="/assets/img/sort-up.svg" alt="Sort Votes Ascending" *ngIf="sortVotes==='ascending'">
+                    <img src="/assets/img/sort-down.svg" alt="Sort Votes Descending" *ngIf="sortVotes==='descending'">
+                </button>
             </th>
             <th>
                 Creation Date
-                <button (click)="sortCreationDates()">Sort</button>
+                <button (click)="sortCreationDates()" aria-label="Sort Creation Date" class="hack-home__sort">
+                    <img src="/assets/img/sort-up.svg" alt="Sort Creation Date Ascending" *ngIf="sortCreationDate==='ascending'">
+                    <img src="/assets/img/sort-down.svg" alt="Sort Creation Date Descending" *ngIf="sortCreationDate==='descending'">
+                </button>
             </th>
         </tr>
     </thead>
@@ -22,12 +30,15 @@
             <td>{{hackIdea.description}}</td>
             <td>
                 {{hackIdea.voteCount}}
-                <button *ngIf="checkIfUserVoted(hackIdea)" (click)="upVoteIdea(hackIdea)">UpVote</button>
+                <button *ngIf="checkIfUserVoted(hackIdea)" (click)="upVoteIdea(hackIdea)" aria-label="Upvote Idea" class="hack-home__upvote">
+                    <img src="/assets/img/hand-thumbs-up.svg" alt="Upvote Idea">
+                </button>
             </td>
             <td>{{hackIdea.creationDate | date:'short'}}</td>
         </tr>
     </tbody>
 </table>
-
+</div>
 <a routerLink="./addHack">Add New Hack Idea</a>
 <router-outlet></router-outlet>
+</section>
