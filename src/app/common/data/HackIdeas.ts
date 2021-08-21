@@ -1,4 +1,4 @@
-import { HackIdea } from '../models/HackIdea';
+import { HackIdea } from '../../models/HackIdea';
 import tags from './Tags';
 
 const hackIdea1 = new HackIdea(
@@ -11,7 +11,7 @@ const hackIdea1 = new HackIdea(
     []
 );
 const hackIdea2 = new HackIdea(
-    1,
+    2,
     'Find Security Bug in Google',
     'Find any security bugs present in marketplace in Facebook',
     [tags[0], tags[2]],
@@ -20,7 +20,7 @@ const hackIdea2 = new HackIdea(
     ['geebleser@google.com']
 );
 const hackIdea3 = new HackIdea(
-    1,
+    3,
     'Find Security Bug in Facebook',
     'Find any security bugs present in marketplace in Facebook',
     [tags[0], tags[2]],
@@ -29,7 +29,7 @@ const hackIdea3 = new HackIdea(
     ['geebleser@google.com', 'microSec.ser@microsoft.com']
 );
 const hackIdea4 = new HackIdea(
-    1,
+    4,
     'Find Security Bug in Facebook',
     'Find any security bugs present in marketplace in Facebook',
     [tags[0], tags[2]],
@@ -38,7 +38,7 @@ const hackIdea4 = new HackIdea(
     []
 );
 const hackIdea5 = new HackIdea(
-    1,
+    5,
     'Find Security Bug in Facebook',
     'Find any security bugs present in marketplace in Facebook',
     [tags[0], tags[2]],

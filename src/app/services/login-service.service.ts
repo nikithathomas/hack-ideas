@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import employees from '../common/Employees';
+import employees from '../common/data/Employees';
 import { Employee } from '../models/Employee';
 @Injectable({
   providedIn: 'root'

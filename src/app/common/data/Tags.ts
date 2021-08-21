@@ -1,4 +1,4 @@
-import { Tag } from '../models/Tag';
+import { Tag } from '../../models/Tag';
 
 const javaTag = new Tag(1, 'Java');
 const securityTag = new Tag(2, 'Security');

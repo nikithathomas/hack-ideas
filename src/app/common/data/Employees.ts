@@ -1,4 +1,4 @@
-import { Employee } from '../models/Employee';
+import { Employee } from '../../models/Employee';
 
 const employee1 = new Employee('nikita.thomas@github.com');
 const employee2 = new Employee('microSec.ser@microsoft.com');

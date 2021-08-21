@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HackIdea } from '../models/HackIdea';
-import hackIdeas from '../common/HackIdeas';
+import hackIdeas from '../common/data/HackIdeas';
 
 @Injectable({
   providedIn: 'root'

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import tags from '../common/Tags';
+import tags from '../common/data/Tags';
 import { Tag } from '../models/Tag';
 
 @Injectable({
