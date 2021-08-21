@@ -6,19 +6,25 @@
         <tr>
             <th>Title</th>
             <th>Description</th>
-            <th>Votes</th>
-            <th>Creation Date</th>
+            <th>
+                Votes
+                <button (click)="sortVoteCounts()">Sort</button>
+            </th>
+            <th>
+                Creation Date
+                <button (click)="sortCreationDates()">Sort</button>
+            </th>
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let hackIdea of hackIdeaArray">
+        <tr *ngFor="let hackIdea of (hackIdeaArray | sortPipe:sortOrder:sortAttr)">
             <td>{{hackIdea.title}}</td>
             <td>{{hackIdea.description}}</td>
             <td>
                 {{hackIdea.voteCount}}
                 <button *ngIf="checkIfUserVoted(hackIdea)" (click)="upVoteIdea(hackIdea)">UpVote</button>
             </td>
-            <td>{{hackIdea.creationDate}}</td>
+            <td>{{hackIdea.creationDate | date:'short'}}</td>
         </tr>
     </tbody>
 </table>

@@ -13,14 +13,27 @@ import { LoginServiceService } from '../services/login-service.service';
 export class HackChallengesComponent implements OnInit {
   hackIdeaArray: Array<HackIdea> = [];
   loggedInUser = '';
+  sortOrder = '';
+  sortAttr = '';
+  sortCreationDate = 'ascending';
+  sortVotes = 'ascending';
+
   constructor(private hackIdeaService: HackIdeaServiceService, private loginService: LoginServiceService, private route: Router) { }
 
   ngOnInit(): void {
-    this.hackIdeaArray = this.hackIdeaService.getHackIdeas();
     this.route.events.pipe(filter(e => e instanceof NavigationEnd)).subscribe(() => {
-      this.hackIdeaArray = this.hackIdeaService.getHackIdeas();
+      this.initializingHackChallengesArray();
     });
+    if (!this.hackIdeaArray.length) {
+      this.initializingHackChallengesArray();
+    }
     this.loggedInUser = this.loginService.getLoginId();
+  }
+  initializingHackChallengesArray(): void {
+    this.hackIdeaArray = this.hackIdeaService.getHackIdeas();
+    this.hackIdeaArray.forEach((hackIdea) => {
+      hackIdea.creationDate = new Date(hackIdea.creationDate);
+    });
   }
   upVoteIdea(selectedIdea: HackIdea): void {
     selectedIdea.voteCount = selectedIdea.voteCount + 1;
@@ -36,5 +49,27 @@ export class HackChallengesComponent implements OnInit {
       return false;
     }
     return true;
+  }
+
+  sortVoteCounts(): void {
+    if (this.sortVotes === 'ascending') {
+      this.sortVotes = 'descending';
+    }
+    else {
+      this.sortVotes = 'ascending';
+    }
+    this.sortAttr = 'voteCount';
+    this.sortOrder = this.sortVotes;
+  }
+
+  sortCreationDates(): void {
+    if (this.sortCreationDate === 'ascending') {
+      this.sortCreationDate = 'descending';
+    }
+    else {
+      this.sortCreationDate = 'ascending';
+    }
+    this.sortAttr = 'creationDate';
+    this.sortOrder = this.sortCreationDate;
   }
 }

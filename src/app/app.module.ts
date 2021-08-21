@@ -10,6 +10,7 @@ import { AddHackIdeasComponent } from './add-hack-ideas/add-hack-ideas.component
 import { HackChallengesComponent } from './hack-challenges/hack-challenges.component';
 import { TagRelatedDirective } from './common/directive/tag-related.directive';
 import { TagRelatedComponent } from './tag-related/tag-related.component';
+import { SortPipe } from './common/pipe/sort-data.pipe';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { TagRelatedComponent } from './tag-related/tag-related.component';
     AddHackIdeasComponent,
     HackChallengesComponent,
     TagRelatedDirective,
-    TagRelatedComponent
+    TagRelatedComponent,
+    SortPipe
   ],
   imports: [
     BrowserModule,
