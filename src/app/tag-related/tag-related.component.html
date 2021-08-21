@@ -1,4 +1,6 @@
-<div>
-    <span>{{data.name}}</span>
-    <button (click)="deleteTag()">x</button>
+<div class="hack-tag badge p-2">
+    <span class="">{{data.name}}</span>
+    <button (click)="deleteTag()" aria-label="Delete Tag" class="hack-tag__delete">
+        <img src="/assets/img/trash.svg" alt="">
+    </button>
 </div>

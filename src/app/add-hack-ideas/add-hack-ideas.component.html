@@ -1,29 +1,35 @@
 <section class="hack-add">
-<h2>
-    Add your Hack Idea
-</h2>
-<div>
-    <label for="">Title</label>
-    <input type="text" placeholder="title" [(ngModel)]="title" #titleField="ngModel" required>
-</div>
-<div>
-    <label for="">Description</label>
-    <textarea name="" id="" cols="30" rows="10" placeholder="description" [(ngModel)]="description" #descriptionField="ngModel" required></textarea>
-</div>
-<div>
-    <label for="">Tags</label>
-    <select name="" id="" (change)="selectTag()" [(ngModel)]="tagSelect" #tagField="ngModel" required>
-        <option value="{{tag.id}}" *ngFor="let tag of tagsArray"  [attr.disabled]="checkIfSelected(tag)">
-            {{tag.name}}
-        </option>
-    </select>
-    <ng-template appTagRelated (deleteEvent)="deleteSpecificTag($event)"></ng-template>
-</div>
-<button (click)="cancelAddHackIdea()">
-    Cancel
-</button>
-<button (click)="submitHackIdea()" [attr.disabled]="checkIfAddHackFormValid(titleField.errors?.required,descriptionField.errors?.required,tagField.errors?.required)">
-    Submit
-</button>
+    <h2 class="pb-5 text-center">
+        Add your Hack Idea
+    </h2>
+    <div>
+        <label for="" class="form-label">Title</label>
+        <input type="text" placeholder="title" [(ngModel)]="title" #titleField="ngModel" class="form-control" required>
+    </div>
+    <div class="pt-4">
+        <label for="" class="form-label">Description</label>
+        <textarea class="form-control" name="" id="" cols="30" rows="10" placeholder="description"
+            [(ngModel)]="description" #descriptionField="ngModel" required></textarea>
+    </div>
+    <div class="pt-4">
+        <label for="" class="form-label">Tags</label>
+        <select name="" id="" (change)="selectTag()" [(ngModel)]="tagSelect" #tagField="ngModel" required
+            class="form-select">
+            <option value="{{tag.id}}" *ngFor="let tag of tagsArray" [attr.disabled]="checkIfSelected(tag)">
+                {{tag.name}}
+            </option>
+        </select>
+        <div class="hack-add__tag-container mt-4">
+            <ng-template appTagRelated (deleteEvent)="deleteSpecificTag($event)"></ng-template>
+        </div>
+    </div>
+    <div class="d-flex justify-content-center mt-4">
+        <button (click)="cancelAddHackIdea()" class="btn btn-secondary hack-add__cancel">
+            Cancel
+        </button>
+        <button (click)="submitHackIdea()" class="btn btn-primary hack-add__submit"
+            [attr.disabled]="checkIfAddHackFormValid(titleField.errors?.required,descriptionField.errors?.required,tagField.errors?.required)">
+            Submit
+        </button>
+    </div>
 </section>
-

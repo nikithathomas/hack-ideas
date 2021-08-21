@@ -1,0 +1,17 @@
+@import '../common/less/commonStyles.less';
+
+.hack-add{
+  &__submit{
+      margin-left:20px;
+      .hack-btn-primary();
+  }
+  &__cancel{
+      .hack-btn-secondary();
+  }
+}
+@media(min-width:768px){
+    .hack-add{
+        width:50%;
+        margin:auto;
+    }
+}
